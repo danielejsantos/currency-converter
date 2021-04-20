@@ -1,46 +1,111 @@
-# Getting Started with Create React App
+# Stone Currency Converter - Frontend Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+All the instructions, architecture and decisions about the project can be found below.
 
-## Available Scripts
+## Language and Framework
 
-In the project directory, you can run:
+Following the challenge recommendation, it was used JavaScript and its library, React.
 
-### `yarn start`
+## Dependencies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [TypeScript](https://www.typescriptlang.org/): it types the code at runtime
+- [Axios](https://github.com/axios/axios): used to access APIs, it gives you the ability to take advantage of JavaScript's _async_ and _await_ for more readable asynchronous code.
+- [Styled Components](https://styled-components.com/): it optimizes the styling experience for React components.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Architecture
 
-### `yarn test`
+This project architecture was created in order to support its growth and keep it organized.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Project Tree**
 
-### `yarn build`
+```
+├── public
+│  ├── favicon.ico
+│  └── index.html
+├── src
+│  ├── assets
+│  │  ├── icons
+│  │  │  ├── arrow-left.svg
+│  │  │  └── convert.svg
+│  │  └── images
+│  │     ├── background.png
+│  │     ├── graph.png
+│  │     └── logo.png
+│  ├── components
+│  │  ├── Header
+│  │  │  ├── index.tsx
+│  │  │  └── styles.ts
+│  │  └── Input
+│  │     ├── index.tsx
+│  │     └── styles.ts
+│  ├── helpers
+│  │  └── format-number.ts
+│  ├── pages
+│  │  └── Home
+│  │     ├── ConversionResult
+│  │     │  ├── index.tsx
+│  │     │  └── styles.ts
+│  │     ├── Form
+│  │     │  ├── index.tsx
+│  │     │  └── styles.ts
+│  │     ├── home.hook.ts
+│  │     ├── index.tsx
+│  │     └── styles.ts
+│  ├── styles
+│  │  └── GlobalStyles.ts
+│  ├── App.tsx
+│  ├── index.tsx
+│  ├── react-app-env.d.ts
+│  └── types.d.ts
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── README.md
+├── tsconfig.json
+├── yarn.lock
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The simplified version of the project tree is described below:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **components**: react components used inside the homepage and that can be reusable
+- **helpers**: utility functions
+- **pages**: application screens and hooks
+- **styles**: global styles to be used in the entire application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The project is visually structured by only one page, which is the Homepage. The initial interface shows two fields to be filled: the amount of dollar the user wants to purchase or simply convert and the state fee.
 
-### `yarn eject`
+Below that, there are two radio buttons to choose between paying with money or credit card, since the fee is different for those two.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+And last, there's a convert button, which calculates the currency from dollar to BRL and redirects the user to a different screen, controlled by react useState. At the result screen, there's also a back button so the user can simply return to the initial state and make another conversion.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+As it isn't a considerably large application, the state could be controlled by using only _React Hooks_.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Settings
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You must have Git installed in your machine to download the following GitHub repository:
 
-## Learn More
+- https://github.com/danielejsantos/stone-currency
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Or you can download it by following the command:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`git clone https://github.com/danielejsantos/stone-currency.git`
+
+Then, you must install its dependencies. At the root, run the command:
+
+```
+# with yarn:
+yarn install
+# with npm:
+npm install
+```
+
+## How to run
+
+Navigate to the root folder and run the following command:
+
+```
+# with yarn:
+yarn start
+# with npm:
+npm start
+```
